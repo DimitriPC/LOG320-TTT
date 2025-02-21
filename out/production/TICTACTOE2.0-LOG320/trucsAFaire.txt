@@ -1,0 +1,10 @@
+1. fonction pour sauvegarder etat de jeu
+2. Garder root a travers plusieurs coups joues
+2.1 Zobrist hashing
+2.2 Symmetries
+
+Pour tic tac toe normal, reward de +1, 0, -1 prend beaucoup trop de temps. Il faut punir severement les defaites puisqu un mauvais coup amene directement defaite.
+Pour grand tic tac toe, reduire punition defaite
+
+Ajuster valeur C, car algo dismiss directement noeuds quand ils perdent (avec -100 ou -50)
+

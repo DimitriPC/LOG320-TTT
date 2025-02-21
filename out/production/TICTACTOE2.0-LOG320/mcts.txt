@@ -1,0 +1,41 @@
+function MCTS(root_state, iterations):
+    root = CreateNode(root_state)
+
+    for i in range(iterations):
+        node = Select(root)
+        expanded_node = Expand(node)
+        reward = Simulate(expanded_node)
+        Backpropagate(expanded_node, reward)
+
+    return BestMove(root)
+
+function Select(node):
+    while node is fully expanded and not terminal:
+        node = BestUCTChild(node)
+    return node
+
+function Expand(node):
+    if node is not fully expanded:
+        return AddNewChild(node)
+    return node
+
+function Simulate(node):
+    state = CopyState(node.state)
+    while not Terminal(state):
+        state = RandomPlayout(state)
+    return GetReward(state)
+
+function Backpropagate(node, reward):
+    while node is not null:
+        node.visits += 1
+        node.total_reward += reward
+        node = node.parent
+
+function BestMove(root):
+    return ChildWithMostVisits(root)
+
+function BestUCTChild(node):
+    return ChildWithHighestUCT(node)
+
+function UCT(node):
+    return (node.total_reward / node.visits) + C * sqrt(log(node.parent.visits) / node.visits)
