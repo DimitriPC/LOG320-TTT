@@ -178,10 +178,7 @@ public class CPUPlayer
         Node bestChild = Collections.max(root.children, Comparator.comparing(c -> c.visits));   //
         Board bestState = bestChild.state;
 
-        for (Node child : root.children){
-            Main.printBoard(child.state);
-            System.out.println("UCT value " + child.uctValue() + " First parameter: " + (child.winScore / child.visits) + " Visit number: " + child.visits);
-        }
+//        printChildrenStats(root);
 
         // Find the move that leads to the best state
         Move move = null;
@@ -197,4 +194,10 @@ public class CPUPlayer
         return null;
     }
 
+    public void printChildrenStats(Node root){
+        for (Node child : root.children){
+            Main.printBoard(child.state);
+            System.out.println("UCT value " + child.uctValue() + " First parameter: " + (child.winScore / child.visits) + " Visit number: " + child.visits);
+        }
+    }
 }

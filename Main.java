@@ -20,11 +20,11 @@ public class Main {
         Board board = new Board();
         CPUPlayer cpu = new CPUPlayer(Mark.X);
 
-        board.play(m1, Mark.O);
+//        board.play(m1, Mark.O);
 //
 //        board.play(m2, Mark.O);
 //        board.play(m3, Mark.O);
-        board.play(m4, Mark.O);
+//        board.play(m4, Mark.O);
 //        board.play(m5, Mark.O);
 //        board.play(m6, Mark.O);
 //        board.play(m7, Mark.O);
@@ -35,7 +35,7 @@ public class Main {
 //        board.play(m2, Mark.X);
 //        board.play(m3, Mark.X);
 //        board.play(m4, Mark.X);
-        board.play(m5, Mark.X);
+//        board.play(m5, Mark.X);
 //        board.play(m6, Mark.X);
 //        board.play(m7, Mark.X);
 //        board.play(m8, Mark.X);
@@ -48,10 +48,10 @@ public class Main {
 //            System.out.println(m);
 //        }
 
-        Move m = cpu.monteCarlo(board);
-        System.out.print(m);
+//        Move m = cpu.monteCarlo(board);
+//        System.out.print(m);
 
-//        playCPU(board);
+        playCPU(board);
 //        System.out.print(cpu.getNumOfExploredNodes());
     }
     public static void playCPU(Board board){
