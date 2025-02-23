@@ -1,3 +1,5 @@
+1. AI capable d interagir directement avec serveur sans cmd
+
 1. fonction pour sauvegarder etat de jeu
 2. Garder root a travers plusieurs coups joues
 2.1 Zobrist hashing
