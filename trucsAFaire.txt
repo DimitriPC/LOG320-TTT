@@ -1,5 +1,5 @@
 ESSENTIELS
-1. Copy function
+1. heuristique evaluation
 
 OPTIONNELS
 1. fonction pour sauvegarder etat de jeu

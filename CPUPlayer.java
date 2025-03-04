@@ -95,6 +95,10 @@ public class CPUPlayer
         }
     }
 
+    public int giveHeuristicValue(BigBoard bigBoard){
+        return 0;
+    }
+
 
     public Move monteCarlo(SmallBoard board){
         Node root = new Node(board, null, markCPU);
