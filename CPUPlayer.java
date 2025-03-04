@@ -9,6 +9,7 @@ import java.util.Comparator;
 public class CPUPlayer
 {
     private final Mark markCPU;
+    private final int depthMax = 3;
 
     // Contient le nombre de noeuds visités (le nombre
     // d'appel à la fonction MinMax ou Alpha Beta)
@@ -27,77 +28,18 @@ public class CPUPlayer
         return numExploredNodes;
     }
 
-    // Retourne la liste des coups possibles.  Cette liste contient
-    // plusieurs coups possibles si et seuleument si plusieurs coups
-    // ont le même score.
-    public ArrayList<Move> getNextMoveMinMax(Board board)
-    {
-        numExploredNodes = 0;
-
-        ArrayList<Move> moveArrayList = new ArrayList<>();
-
-        int bestValue = Integer.MIN_VALUE;
-        for (Move m : board.getPossibleMoves()){
-            Board b = board.cloneBoard();
-            b.play(m, markCPU);
-            int value = MinMax(b, 0, false);
-
-            if (value > bestValue){
-                moveArrayList.clear();
-                moveArrayList.add(m);
-                bestValue = value;
-            } else if (value == bestValue) {
-                moveArrayList.add(m);
-            }
-
-        }
-        return moveArrayList;
-    }
-
-    public int MinMax(Board board, int depth, boolean maximizing){
-        numExploredNodes++;
-        int evaluation = board.evaluate(markCPU);
-        if (evaluation == 0){
-            return 0;
-        } else if (evaluation == 100 || evaluation == -100) {
-            return evaluation;
-        }
-
-        else{
-
-            if (maximizing){
-                int maxEvaluation = Integer.MIN_VALUE;
-                for (int i = 0; i < board.getPossibleMoves().size(); i++){
-                    Board b = board.cloneBoard();
-                    b.play(board.getPossibleMoves().get(i), markCPU);
-                    int minMax = MinMax(b, depth+1,false);
-                    maxEvaluation = Math.max(maxEvaluation, minMax);
-                }
-                return maxEvaluation;
-
-            } else {
-                int minEvaluation = Integer.MAX_VALUE;
-                for (int i = 0; i < board.getPossibleMoves().size(); i++){
-                    Board b = board.cloneBoard();
-                    b.play(board.getPossibleMoves().get(i), markCPU.enemy());
-                    int minMax = MinMax(b, depth+1,true);
-                    minEvaluation = Math.min(minEvaluation, minMax);
-                }
-                return minEvaluation;
-            }
-        }
-    }
+    
 
     // Retourne la liste des coups possibles.  Cette liste contient
     // plusieurs coups possibles si et seuleument si plusieurs coups
     // ont le même score.
-    public ArrayList<Move> getNextMoveAB(Board board){
+    public ArrayList<Move> getNextMoveAB(BigBoard bboard){
         numExploredNodes = 0;
         ArrayList<Move> moveArrayList = new ArrayList<>();
 
         int bestValue = Integer.MIN_VALUE;
-        for (Move m : board.getPossibleMoves()){
-            Board b = board.cloneBoard();
+        for (Move m : bboard.getPossibleMoves()){
+            BigBoard b = bboard.cloneBoard();
             b.play(m, markCPU);
             int value = alphaBeta(b, 0, false, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
@@ -113,9 +55,12 @@ public class CPUPlayer
         return moveArrayList;
     }
 
-    public int alphaBeta(Board board, int depth, boolean maximizing, int alpha, int beta){
+    public int alphaBeta(BigBoard board, int depth, boolean maximizing, int alpha, int beta){
         numExploredNodes++;
         int evaluation = board.evaluate(markCPU);
+        if (depth == depthMax){
+            return 0;           //changer pour fonction evaluation
+        }
         if (evaluation == 0){
             return 0;
         } else if (evaluation == 100 || evaluation == -100) {
@@ -125,7 +70,7 @@ public class CPUPlayer
         if (maximizing){
             int maxEvaluation = Integer.MIN_VALUE;
             for (int i = 0; i < board.getPossibleMoves().size(); i++){
-                Board b = board.cloneBoard();
+                BigBoard b = board.cloneBoard();
                 b.play(board.getPossibleMoves().get(i), markCPU);
                 int value = alphaBeta(b, depth+1,false, alpha, beta);
                 maxEvaluation = Math.max(maxEvaluation, value);
@@ -138,7 +83,7 @@ public class CPUPlayer
         }else{
             int minEvaluation = Integer.MAX_VALUE;
             for (int i = 0; i < board.getPossibleMoves().size(); i++) {
-                Board b = board.cloneBoard();
+                BigBoard b = board.cloneBoard();
                 b.play(board.getPossibleMoves().get(i), markCPU.enemy());
                 int value = alphaBeta(b, depth + 1, true, alpha, beta);
                 minEvaluation = Math.min(minEvaluation, value);
@@ -151,7 +96,7 @@ public class CPUPlayer
     }
 
 
-    public Move monteCarlo(Board board){
+    public Move monteCarlo(SmallBoard board){
         Node root = new Node(board, null, markCPU);
 
         int ITERATIONS = 10000;
@@ -176,14 +121,14 @@ public class CPUPlayer
         }
 
         Node bestChild = Collections.max(root.children, Comparator.comparing(c -> c.visits));   //
-        Board bestState = bestChild.state;
+        SmallBoard bestState = bestChild.state;
 
 //        printChildrenStats(root);
 
         // Find the move that leads to the best state
         Move move = null;
-        for (int i = 0; i < Board.NBLIGNES; i++) {
-            for (int j = 0; j < Board.NBCOLONNES; j++) {
+        for (int i = 0; i < SmallBoard.NBLIGNES; i++) {
+            for (int j = 0; j < SmallBoard.NBCOLONNES; j++) {
                 if (board.getBoard()[i][j] != bestState.getBoard()[i][j]) {
                     move = new Move(i, j);
                     return move;
@@ -196,8 +141,11 @@ public class CPUPlayer
 
     public void printChildrenStats(Node root){
         for (Node child : root.children){
-            Main.printBoard(child.state);
             System.out.println("UCT value " + child.uctValue() + " First parameter: " + (child.winScore / child.visits) + " Visit number: " + child.visits);
         }
+    }
+
+    public Mark getMarkCPU() {
+        return markCPU;
     }
 }

@@ -1,10 +1,8 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class Node {
-    Board state;
+    SmallBoard state;
     Node parent;
     List<Node> children;
     double visits;
@@ -16,7 +14,7 @@ public class Node {
     private final double LOSS_VALUE = -2;
     private final double TIE_VALUE = 0;
 
-    public Node(Board state, Node parent, Mark nodeMark) {
+    public Node(SmallBoard state, Node parent, Mark nodeMark) {
         this.state = state;
         this.parent = parent;
         this.nodeMark = nodeMark;
@@ -46,9 +44,9 @@ public class Node {
 
 
     public Node expand() {
-        List<Move> availableMoves = state.getPossibleMoves();
+        List<Move> availableMoves = state.getPossibleMoves(2);   //a changer
         for (Move move : availableMoves) {
-            Board newState = state.cloneBoard();
+            SmallBoard newState = state.cloneBoard();
             newState.play(move, nodeMark);
             Node child = new Node(newState, this, nodeMark.enemy());
             children.add(child);
@@ -57,10 +55,10 @@ public class Node {
     }
 
     public double simulate(Mark cpuMark) {
-        Board simulationState = state.cloneBoard();
+        SmallBoard simulationState = state.cloneBoard();
         int i = 0;
         while (simulationState.evaluate(nodeMark) == -200) {    //match non fini
-            List<Move> moves = simulationState.getPossibleMoves();
+            List<Move> moves = simulationState.getPossibleMoves(2); // a changer
             Move randomMove = moves.get((int) (Math.random() * moves.size()));
             if (i % 2 == 0){
                 simulationState.play(randomMove, nodeMark);

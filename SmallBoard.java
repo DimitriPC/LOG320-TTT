@@ -4,15 +4,18 @@ import java.util.ArrayList;
 // de cette classe, ni le nom de la classe.
 // Vous pouvez par contre ajouter d'autres méthodes (ça devrait 
 // être le cas)
-public class Board
+public class SmallBoard
 {
     private Mark[][] board;
+
+    private Mark result = Mark.NULL;
+
 
     public static final int NBLIGNES = 3;
     public static final int NBCOLONNES = 3;
 
     // Ne pas changer la signature de cette méthode
-    public Board() {
+    public SmallBoard() {
         board = new Mark[3][3];
         for (int i = 0; i < NBLIGNES; i++){
             for (int j = 0; j < NBCOLONNES; j++){
@@ -27,7 +30,9 @@ public class Board
     //
     // Ne pas changer la signature de cette méthode
     public void play(Move m, Mark mark){
+
         board[m.getRow()][m.getCol()] = mark;
+
     }
 
 
@@ -40,8 +45,10 @@ public class Board
         for (int i = 0; i < NBLIGNES; i++){
            if (board[i][0] == board[i][1] && board[i][1] == board[i][2]){
                if (board[i][0] == mark){
+                   result = mark;
                    return 100;
                }else if (board[i][0] != Mark.EMPTY){
+                   result = mark.enemy();
                    return -100;
                }
            }
@@ -51,8 +58,10 @@ public class Board
         for (int i = 0; i < NBCOLONNES; i++){
             if (board[0][i] == board[1][i] && board[1][i] == board[2][i]){
                 if (board[0][i] == mark){
+                    result = mark;
                     return 100;
                 } else if (board[0][i] != Mark.EMPTY) {
+                    result = mark.enemy();
                     return -100;
                 }
             }
@@ -60,21 +69,27 @@ public class Board
 
         //DIAGONALE
         if (board[0][0] == mark && board[1][1] == mark && board[2][2] == mark){
+            result = mark;
             return 100;
         } else if (board[0][0] == mark.enemy() && board[1][1] == mark.enemy() && board[2][2] == mark.enemy()) {
+            result = mark.enemy();
             return -100;
         }
 
         //ANTI-DIAGONALE
         if (board[0][2] == mark && board[1][1] == mark && board[2][0] == mark){
+            result = mark;
             return 100;
         } else if (board[0][2] == mark.enemy() && board[1][1] == mark.enemy() && board[2][0] == mark.enemy()) {
+            result = mark.enemy();
             return -100;
         }
 
         if (missingMoves() == 0){
+            result = Mark.EMPTY;
             return 0;           //match nul
         }else{
+            result = Mark.NULL;
             return -200;        //match non fini et pas de victoire
         }
 
@@ -90,12 +105,12 @@ public class Board
         return 0;
     }
 
-    public ArrayList<Move> getPossibleMoves(){
+    public ArrayList<Move> getPossibleMoves(int boardIndex){
         ArrayList<Move> moveArrayList = new ArrayList<>();
         for (int i = 0; i < NBLIGNES; i++){
             for (int j = 0; j < NBCOLONNES; j++){
                 if (board[i][j] == Mark.EMPTY){
-                    Move m = new Move(i, j);
+                    Move m = new Move(i, j, boardIndex);
                     moveArrayList.add(m);
                 }
             }
@@ -103,8 +118,8 @@ public class Board
         return moveArrayList;
     }
 
-    public Board cloneBoard(){
-        Board newboard = new Board();
+    public SmallBoard cloneBoard(){
+        SmallBoard newboard = new SmallBoard();
         for (int i = 0; i < NBLIGNES; i++){
             for (int j = 0; j < NBCOLONNES; j++){
                 if (board[i][j] == Mark.O){
@@ -119,10 +134,19 @@ public class Board
                 }
             }
         }
+        newboard.result = this.result;
         return newboard;
     }
 
     public Mark[][] getBoard() {
         return board;
+    }
+
+    public Mark getResult() {
+        return result;
+    }
+
+    public void setResult(Mark result) {
+        this.result = result;
     }
 }

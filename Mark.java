@@ -2,7 +2,8 @@
 public enum Mark{
         X,
         O,
-        EMPTY;
+        EMPTY,
+        NULL;
 
     public Mark enemy(){
             if (this == Mark.O){
