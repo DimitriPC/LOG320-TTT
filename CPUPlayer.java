@@ -55,6 +55,28 @@ public class CPUPlayer
         return moveArrayList;
     }
 
+    public ArrayList<Move> getNextMoveMinMax(BigBoard bboard){
+        numExploredNodes = 0;
+        ArrayList<Move> moveArrayList = new ArrayList<>();
+
+        int bestValue = Integer.MIN_VALUE;
+        for (Move m : bboard.getPossibleMoves()){
+            BigBoard b = bboard.cloneBoard();
+            b.play(m, markCPU);
+            int value = minMax(b, 0, false);
+
+            if (value > bestValue){
+                moveArrayList.clear();
+                moveArrayList.add(m);
+                bestValue = value;
+            } else if (value == bestValue) {
+                moveArrayList.add(m);
+            }
+
+        }
+        return moveArrayList;
+    }
+
     public int alphaBeta(BigBoard board, int depth, boolean maximizing, int alpha, int beta){
         numExploredNodes++;
         int evaluation = board.evaluate(markCPU);
@@ -95,6 +117,40 @@ public class CPUPlayer
         }
     }
 
+    public int minMax(BigBoard board, int depth, boolean maximizing){
+        numExploredNodes++;
+        if (depth == depthMax){
+            return 0;           //changer pour fonction evaluation
+        }
+        int evaluation = board.evaluate(markCPU);
+        if (evaluation == 0){
+            return 0;
+        } else if (evaluation == 100 || evaluation == -100) {
+            return evaluation;
+        }
+
+        if (maximizing){
+            int maxEvaluation = Integer.MIN_VALUE;
+            for (int i = 0; i < board.getPossibleMoves().size(); i++){
+                BigBoard b = board.cloneBoard();
+                b.play(board.getPossibleMoves().get(i), markCPU);
+                int value = minMax(b, depth+1,false);
+                maxEvaluation = Math.max(maxEvaluation, value);
+
+            }
+            return maxEvaluation;
+        }else{
+            int minEvaluation = Integer.MAX_VALUE;
+            for (int i = 0; i < board.getPossibleMoves().size(); i++) {
+                BigBoard b = board.cloneBoard();
+                b.play(board.getPossibleMoves().get(i), markCPU.enemy());
+                int value = minMax(b, depth + 1, true);
+                minEvaluation = Math.min(minEvaluation, value);
+
+            }
+            return minEvaluation;
+        }
+    }
     public int giveHeuristicValue(BigBoard bigBoard){
         return 0;
     }
