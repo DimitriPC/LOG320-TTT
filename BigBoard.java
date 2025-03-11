@@ -65,7 +65,7 @@ public class BigBoard {
             if (boardArray[i][0].getResult() == boardArray[i][1].getResult() && boardArray[i][1].getResult() == boardArray[i][2].getResult()){
                 if (boardArray[i][0].getResult() == mark){
                     return 100;
-                }else if (boardArray[i][0].getResult() != Mark.EMPTY){
+                }else if (boardArray[i][0].getResult() == mark.enemy()){
                     return -100;
                 }
             }
@@ -76,7 +76,7 @@ public class BigBoard {
             if (boardArray[0][i] == boardArray[1][i] && boardArray[1][i] == boardArray[2][i]){
                 if (boardArray[0][i].getResult() == mark){
                     return 100;
-                } else if (boardArray[0][i].getResult() != Mark.EMPTY) {
+                } else if (boardArray[0][i].getResult() == mark.enemy()) {
                     return -100;
                 }
             }
@@ -96,6 +96,7 @@ public class BigBoard {
             return -100;
         }
 
+        //missing moves pour un smallBoard
         if (missingMoves() == 0){
             return 0;           //match nul
         }else{
@@ -105,9 +106,9 @@ public class BigBoard {
     }
     //retourne 1 s'il reste des cases disponibles 0 sinon
     public int missingMoves(){
-        for (int i = 0;i < NBLIGNES; i++){
+        for (int i = 0; i < NBLIGNES; i++){
             for (int j = 0; j < NBCOLONNES; j++){
-                if (boardArray[i][j].getResult() == null){
+                if (boardArray[i][j].getResult() == Mark.NULL){
                     return 1;
                 }
             }

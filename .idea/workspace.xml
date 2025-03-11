@@ -8,10 +8,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BigBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/BigBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CPUPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/CPUPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/BigBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/BigBoard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/CPUPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/CPUPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/trucsAFaire.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/trucsAFaire.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trucsAFaire.txt" beforeDir="false" afterPath="$PROJECT_DIR$/trucsAFaire.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DimitriPC"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DimitriPC/LOG320-TTT.git",
+    "accountId": "0ae4b087-82ec-4581-ba28-4dd527b19d4f"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -32,7 +45,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Client.executor": "Run",
+    "Application.Client.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "BigBoard",
@@ -44,14 +57,6 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,5 +71,21 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="bboard.getPossibleMoves()" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

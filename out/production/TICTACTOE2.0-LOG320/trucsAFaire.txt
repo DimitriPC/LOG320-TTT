@@ -1,5 +1,6 @@
 ESSENTIELS
 1. heuristique evaluation
+2. gestion mauvais moves adversaires
 
 OPTIONNELS
 1. fonction pour sauvegarder etat de jeu
