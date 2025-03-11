@@ -153,5 +153,9 @@ public class BigBoard {
     public void setBoardToPlayIndex(int boardToPlayIndex) {
         this.boardToPlayIndex = boardToPlayIndex;
     }
+
+    public SmallBoard[][] getBoardArray() {
+        return boardArray;
+    }
 }
 

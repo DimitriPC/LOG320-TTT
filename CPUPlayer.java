@@ -9,7 +9,7 @@ import java.util.Comparator;
 public class CPUPlayer
 {
     private final Mark markCPU;
-    private final int depthMax = 3;
+    private final int depthMax = 5;
 
     // Contient le nombre de noeuds visités (le nombre
     // d'appel à la fonction MinMax ou Alpha Beta)
@@ -81,12 +81,14 @@ public class CPUPlayer
         numExploredNodes++;
         int evaluation = board.evaluate(markCPU);
         if (depth == depthMax){
-            return 0;           //changer pour fonction evaluation
+            return giveHeuristicValue(board);
         }
         if (evaluation == 0){
             return 0;
         } else if (evaluation == 100 || evaluation == -100) {
-            return evaluation;
+            if (evaluation == 100){
+                return Integer.MAX_VALUE;
+            }else return Integer.MIN_VALUE;
         }
 
         if (maximizing){
@@ -120,13 +122,15 @@ public class CPUPlayer
     public int minMax(BigBoard board, int depth, boolean maximizing){
         numExploredNodes++;
         if (depth == depthMax){
-            return 0;           //changer pour fonction evaluation
+            return giveHeuristicValue(board);
         }
         int evaluation = board.evaluate(markCPU);
         if (evaluation == 0){
             return 0;
         } else if (evaluation == 100 || evaluation == -100) {
-            return evaluation;
+            if (evaluation == 100){
+                return Integer.MAX_VALUE;
+            }else return Integer.MIN_VALUE;
         }
 
         if (maximizing){
@@ -152,7 +156,17 @@ public class CPUPlayer
         }
     }
     public int giveHeuristicValue(BigBoard bigBoard){
-        return 0;
+        int value = 0;
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                if (bigBoard.getBoardArray()[i][j].getBoard()[1][1] == markCPU){
+                    value += 100;
+                } else if (bigBoard.getBoardArray()[i][j].getBoard()[1][1] == markCPU.enemy()) {
+                    value -= 100;
+                }
+            }
+        }
+        return value;
     }
 
 

@@ -36,7 +36,8 @@ public class Client {
                     System.out.println("Nouvelle partie! Vous jouez X, entrez votre premier coup : ");
                     cpuPlayer = new CPUPlayer(Mark.X);
                     bigBoard = new BigBoard();
-                    ArrayList<Move> arr = cpuPlayer.getNextMoveAB(bigBoard);
+                    //ArrayList<Move> arr = cpuPlayer.getNextMoveAB(bigBoard);
+                    ArrayList<Move> arr = cpuPlayer.getNextMoveMinMax(bigBoard);
                     bigBoard.play(arr.getFirst(), Mark.X);
                     String move = arr.getFirst().sendMove();
                     output.write(move.getBytes(),0,move.length());
@@ -75,7 +76,8 @@ public class Client {
                     Move m = createMoveWithString(moveString);
                     bigBoard.play(m, cpuPlayer.getMarkCPU().enemy());
 
-                    ArrayList<Move> arr = cpuPlayer.getNextMoveAB(bigBoard);
+                    //ArrayList<Move> arr = cpuPlayer.getNextMoveAB(bigBoard);
+                    ArrayList<Move> arr = cpuPlayer.getNextMoveMinMax(bigBoard);
                     bigBoard.play(arr.getFirst(), cpuPlayer.getMarkCPU());
                     String move = arr.getFirst().sendMove();
 
