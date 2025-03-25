@@ -8,6 +8,8 @@ OPTIONNELS
 2.1 Zobrist hashing
 2.2 Symmetries
 
+MCTS pour small board ?
+
 Pour tic tac toe normal, reward de +1, 0, -1 prend beaucoup trop de temps. Il faut punir severement les defaites puisqu un mauvais coup amene directement defaite.
 Pour grand tic tac toe, reduire punition defaite
 

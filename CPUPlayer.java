@@ -156,17 +156,7 @@ public class CPUPlayer
         }
     }
     public int giveHeuristicValue(BigBoard bigBoard){
-        int value = 0;
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
-                if (bigBoard.getBoardArray()[i][j].getBoard()[1][1] == markCPU){
-                    value += 100;
-                } else if (bigBoard.getBoardArray()[i][j].getBoard()[1][1] == markCPU.enemy()) {
-                    value -= 100;
-                }
-            }
-        }
-        return value;
+        return bigBoard.giveHeuristicValue(markCPU);
     }
 
 

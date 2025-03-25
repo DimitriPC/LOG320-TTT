@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e49e07c2-ff84-4622-9f4b-a1287240f97f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BigBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/BigBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CPUPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/CPUPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmallBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmallBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trucsAFaire.txt" beforeDir="false" afterPath="$PROJECT_DIR$/trucsAFaire.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,18 +19,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "DimitriPC"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DimitriPC&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DimitriPC/LOG320-TTT.git",
-    "accountId": "0ae4b087-82ec-4581-ba28-4dd527b19d4f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DimitriPC/LOG320-TTT.git&quot;,
+    &quot;accountId&quot;: &quot;0ae4b087-82ec-4581-ba28-4dd527b19d4f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -64,5 +68,21 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Client.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="bboard.getPossibleMoves()" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

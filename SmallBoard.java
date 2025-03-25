@@ -6,6 +6,9 @@ import java.util.ArrayList;
 // être le cas)
 public class SmallBoard
 {
+    private static final int VALUE_FOR_CENTER = 5;
+    private static final int VALUE_FOR_CORNER = 2;
+    private static final int VALUE_FOR_EDGES = 1;
     private Mark[][] board;
 
     private Mark result = Mark.NULL;
@@ -148,5 +151,37 @@ public class SmallBoard
 
     public void setResult(Mark result) {
         this.result = result;
+    }
+
+    public int giveHeuristicValue(Mark mark){
+        int[] cornerRows = {0, 0, 2, 2};
+        int[] cornerCols = {0, 2, 0, 2};
+
+        int[] edgeRows = {0, 1, 1, 2};
+        int[] edgeCols = {1, 0, 2, 1};
+
+        int value = 0;
+        if (board[1][1] == mark){
+            value += VALUE_FOR_CENTER;
+        } else if (board[1][1] == mark.enemy()) {
+            value -= VALUE_FOR_CENTER;
+        }
+        for (int i = 0; i < cornerRows.length; i++){
+            if (board[cornerRows[i]][cornerCols[i]] == mark){
+                value += VALUE_FOR_CORNER;
+            } else if (board[cornerRows[i]][cornerCols[i]] == mark.enemy()) {
+                value -= VALUE_FOR_CORNER;
+            }
+        }
+
+        for (int i = 0; i < edgeRows.length; i++){
+            if (board[edgeRows[i]][edgeCols[i]] == mark){
+                value += VALUE_FOR_EDGES;
+            } else if (board[edgeRows[i]][edgeCols[i]] == mark.enemy()) {
+                value -= VALUE_FOR_EDGES;
+            }
+        }
+
+        return value;
     }
 }

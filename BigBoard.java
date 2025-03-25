@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 
 public class BigBoard {
+    private static final int VALUE_FOR_CENTER = 200;
+    private static final int VALUE_FOR_CORNER = 80;
+    private static final int VALUE_FOR_EDGES = 40;
     //Disposition des SmallBoard
     /*
     0 | 1 | 2
@@ -157,6 +160,46 @@ public class BigBoard {
 
     public SmallBoard[][] getBoardArray() {
         return boardArray;
+    }
+
+    public int giveHeuristicValue(Mark mark){
+        int[] cornerRows = {0, 0, 2, 2};
+        int[] cornerCols = {0, 2, 0, 2};
+
+        int[] edgeRows = {0, 1, 1, 2};
+        int[] edgeCols = {1, 0, 2, 1};
+
+        int value = 0;
+
+        for (int i = 0; i < NBLIGNES; i++){
+            for (int j = 0; j < NBCOLONNES; j++){
+                value += boardArray[i][j].giveHeuristicValue(mark);
+            }
+        }
+
+
+        if (boardArray[1][1].getResult() == mark){
+            value += VALUE_FOR_CENTER;
+        } else if (boardArray[1][1].getResult() == mark.enemy()) {
+            value -= VALUE_FOR_CENTER;
+        }
+        for (int i = 0; i < cornerRows.length; i++){
+            if (boardArray[cornerRows[i]][cornerCols[i]].getResult() == mark){
+                value += VALUE_FOR_CORNER;
+            } else if (boardArray[cornerRows[i]][cornerCols[i]].getResult() == mark.enemy()) {
+                value -= VALUE_FOR_CORNER;
+            }
+        }
+
+        for (int i = 0; i < edgeRows.length; i++){
+            if (boardArray[edgeRows[i]][edgeCols[i]].getResult() == mark){
+                value += VALUE_FOR_EDGES;
+            } else if (boardArray[edgeRows[i]][edgeCols[i]].getResult() == mark.enemy()) {
+                value -= VALUE_FOR_EDGES;
+            }
+        }
+
+        return value;
     }
 }
 

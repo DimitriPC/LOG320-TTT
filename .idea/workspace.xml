@@ -8,10 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BigBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/BigBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CPUPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/CPUPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/BigBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/BigBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/CPUPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/CPUPlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/trucsAFaire.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/trucsAFaire.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SmallBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/SmallBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trucsAFaire.txt" beforeDir="false" afterPath="$PROJECT_DIR$/trucsAFaire.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,18 +20,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "DimitriPC"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DimitriPC&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DimitriPC/LOG320-TTT.git",
-    "accountId": "0ae4b087-82ec-4581-ba28-4dd527b19d4f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DimitriPC/LOG320-TTT.git&quot;,
+    &quot;accountId&quot;: &quot;0ae4b087-82ec-4581-ba28-4dd527b19d4f&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -43,20 +41,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Client.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "BigBoard",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Client.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;BigBoard&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
