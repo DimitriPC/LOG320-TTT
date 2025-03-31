@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e49e07c2-ff84-4622-9f4b-a1287240f97f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BigBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/BigBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CPUPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/CPUPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/BigBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/BigBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/CPUPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TICTACTOE2.0-LOG320/CPUPlayer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

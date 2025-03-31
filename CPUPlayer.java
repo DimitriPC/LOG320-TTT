@@ -9,7 +9,12 @@ import java.util.Comparator;
 public class CPUPlayer
 {
     private final Mark markCPU;
-    private final int depthMax = 5;
+    private int depthMax = 5;
+    private final static int EARLY_GAME_MOVE_COUNT = 10;
+    private final static int DEPTH_EARLY_GAME = 3;
+    private final static int MIDDLE_GAME_MOVE_COUNT = 45;
+    private final static int DEPTH_MIDDLE_GAME = 5;
+    private final static int DEPTH_END_GAME = 7;
 
     // Contient le nombre de noeuds visités (le nombre
     // d'appel à la fonction MinMax ou Alpha Beta)
@@ -36,6 +41,7 @@ public class CPUPlayer
     public ArrayList<Move> getNextMoveAB(BigBoard bboard){
         numExploredNodes = 0;
         ArrayList<Move> moveArrayList = new ArrayList<>();
+        setDepth(bboard);
 
         int bestValue = Integer.MIN_VALUE;
         for (Move m : bboard.getPossibleMoves()){
@@ -58,6 +64,7 @@ public class CPUPlayer
     public ArrayList<Move> getNextMoveMinMax(BigBoard bboard){
         numExploredNodes = 0;
         ArrayList<Move> moveArrayList = new ArrayList<>();
+        setDepth(bboard);
 
         int bestValue = Integer.MIN_VALUE;
         for (Move m : bboard.getPossibleMoves()){
@@ -159,6 +166,15 @@ public class CPUPlayer
         return bigBoard.giveHeuristicValue(markCPU);
     }
 
+    public void setDepth(BigBoard bigBoard){
+        if (bigBoard.getMoveCount() > MIDDLE_GAME_MOVE_COUNT){
+            depthMax = DEPTH_END_GAME;
+        } else if (bigBoard.getMoveCount() > EARLY_GAME_MOVE_COUNT) {
+            depthMax = DEPTH_MIDDLE_GAME;
+        }else{
+            depthMax = DEPTH_EARLY_GAME;
+        }
+    }
 
     public Move monteCarlo(SmallBoard board){
         Node root = new Node(board, null, markCPU);

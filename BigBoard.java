@@ -19,6 +19,9 @@ public class BigBoard {
     public static final int NBLIGNES = 3;
     public static final int NBCOLONNES = 3;
 
+    private int moveCount = 0;
+
+
     public BigBoard() {
         boardArray = new SmallBoard[NBLIGNES][NBCOLONNES];
 
@@ -29,6 +32,8 @@ public class BigBoard {
             }
         }
     }
+
+
 
     // Place la pièce 'nodeMark' sur le plateau, à la
     // position spécifiée dans Move
@@ -41,6 +46,7 @@ public class BigBoard {
 
 
         boardArray[boardToPlayRow][boardToPlayCol].play(m, mark);
+        moveCount++;
 
         int value = boardArray[boardToPlayRow][boardToPlayCol].evaluate(mark);
         if (value == 100){
@@ -200,6 +206,9 @@ public class BigBoard {
         }
 
         return value;
+    }
+    public int getMoveCount() {
+        return moveCount;
     }
 }
 
