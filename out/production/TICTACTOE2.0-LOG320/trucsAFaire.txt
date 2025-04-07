@@ -1,5 +1,5 @@
 ESSENTIELS
-1. heuristique evaluation
+1. changer dynamiquement valeurs centre-edge-corner
 2. gestion mauvais moves adversaires
 
 OPTIONNELS

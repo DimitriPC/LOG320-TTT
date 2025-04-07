@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
 public class BigBoard {
-    private static final int VALUE_FOR_CENTER = 200;
-    private static final int VALUE_FOR_CORNER = 80;
-    private static final int VALUE_FOR_EDGES = 40;
+    //etait 200, 80, 40
+    private static int VALUE_FOR_CENTER = 200;
+    private static int VALUE_FOR_CORNER = 200;
+    private static int VALUE_FOR_EDGES = 200;
     //Disposition des SmallBoard
     /*
     0 | 1 | 2
