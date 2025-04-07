@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class BigBoard {
     //etait 200, 80, 40
-    private static int VALUE_FOR_CENTER = 200;
+    private static int VALUE_FOR_CENTER = 300;
     private static int VALUE_FOR_CORNER = 200;
     private static int VALUE_FOR_EDGES = 200;
     //Disposition des SmallBoard
