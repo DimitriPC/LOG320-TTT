@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 public class Client {
@@ -14,11 +15,17 @@ public class Client {
         BigBoard bigBoard = null;
 
         try {
-            MyClient = new Socket("localhost", 8888);
+//            MyClient = new Socket("localhost", 8888);
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Entrez IP : ");
+            String IP = scanner.nextLine();
+            MyClient = new Socket(IP, 8888);
 
             input    = new BufferedInputStream(MyClient.getInputStream());
             output   = new BufferedOutputStream(MyClient.getOutputStream());
             BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+
             while(1 == 1){
                 char cmd = 0;
 
